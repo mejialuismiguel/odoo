@@ -7,7 +7,12 @@
     'category': 'Base',
     'version': '17.0.0.1',
     'depends': ['base'],
-    'data': [],
+    'data': [
+        'security/ir.model.access.csv',
+        'views/grades_manager_menus.xml',
+        'views/grades_course_views.xml',
+        'views/res_partner_views.xml',
+    ],
     'license': 'AGPL-3',
     'application': True,
     'installable': True,
