@@ -17,3 +17,4 @@ class GradesCourse(models.Model):
     last_evaluation = fields.Datetime(string='Last evaluation')
     course_image = fields.Binary(string='Course icon')
     course_shift = fields.Selection([('day', 'Day'),('night', 'Night')], string='Course shift')
+    teacher_id = fields.Many2one('res.partner', string='Teacher', domain=[('is_teacher', '=', True)])
