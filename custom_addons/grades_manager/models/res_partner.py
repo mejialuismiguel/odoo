@@ -4,4 +4,5 @@ class ResPartner(models.Model):
     _inherit = 'res.partner'
 
     is_teacher = fields.Boolean(string='Is teacher')
+    is_freelance = fields.Boolean(string='Is freelance')
 
