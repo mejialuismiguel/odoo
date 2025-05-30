@@ -30,11 +30,11 @@
                         <group>
                             <field name="name"/>
                             <field name="description"/>
-                            <field name="teacher_id"/>
+                            <field name="teacher_id" domain="[('is_teacher','=',True)]"/>
                             <field name="course_start"/>
                             <field name="course_end"/>
                             <field name="evaluation_ids"/>
-                            <field name="student_ids" widget="many2many_tags"/>
+                            <field name="student_ids" domain="[('is_student','=',True)]" widget="many2many_tags"/>
                         </group>
                         <group>
                             <field name="course_image"/>
