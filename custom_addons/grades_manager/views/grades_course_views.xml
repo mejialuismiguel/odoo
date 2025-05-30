@@ -1,10 +1,6 @@
 <odoo>
-    <record id="grades_course_action" model="ir.actions.act_window">
-        <field name="name">Courses</field>
-        <field name="res_model">grades.course</field>
-        <field name="view_mode">tree,form</field>
-    </record>
-    <record id="grades_course_tree_view" model="ir.ui.view">
+
+    <record id="grades_course_tree" model="ir.ui.view">
         <field name="name">grades.course.tree</field>
         <field name="model">grades.course</field>
         <field name="arch" type="xml">
@@ -19,10 +15,12 @@
                 <field name="course_end"/>
                 <field name="last_evaluation"/>
                 <field name="course_shift"/>
+                <field name="evaluation_ids"/>
             </tree>
         </field>
     </record>
-    <record id="grades_course_form_view" model="ir.ui.view">
+
+    <record id="grades_course_form" model="ir.ui.view">
         <field name="name">grades.course.form</field>
         <field name="model">grades.course</field>
         <field name="arch" type="xml">
@@ -36,6 +34,7 @@
                             <field name="course_start"/>
                             <field name="course_end"/>
                             <field name="evaluation_ids"/>
+                            <field name="student_ids" widget="many2many_tags"/>
                         </group>
                         <group>
                             <field name="course_image"/>
@@ -48,5 +47,11 @@
                 </sheet>
             </form>
         </field>
+    </record>
+
+    <record id="grades_course_action" model="ir.actions.act_window">
+        <field name="name">Courses</field>
+        <field name="res_model">grades.course</field>
+        <field name="view_mode">tree,form</field>
     </record>
 </odoo>

@@ -1,17 +1,20 @@
 <odoo>
+
     <record id="view_partner_form" model="ir.ui.view">
-        <field name="name">res.partner.form.ext</field>
+        <field name="name">res.partner.form.teach</field>
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.view_partner_form"/>
         <field name="arch" type="xml">
            <field name="category_id" position="after">
-                <field name="is_teacher"/>
+               <field name="is_teacher"/>
+               <field name="is_student"/>
             </field>
             <xpath expr="//field[@name='vat']/.." position="inside">
                 <field name="is_freelance"/>
             </xpath>
         </field>
     </record>
+
     <record id="teacher_tree_view" model="ir.ui.view">
         <field name="name">teacher.tree.view</field>
         <field name="model">res.partner</field>
@@ -25,6 +28,20 @@
             </tree>
         </field>
     </record>
+
+    <record id="student_tree_view" model="ir.ui.view">
+        <field name="name">student.tree.view</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <tree string="Students">
+                <field name="complete_name"/>
+                <field name="phone"/>
+                <field name="email"/>
+                <field name="is_student"/>
+            </tree>
+        </field>
+    </record>
+
     <record id="teacher_form_view" model="ir.ui.view">
         <field name="name">teacher.form.view</field>
         <field name="model">res.partner</field>
@@ -47,7 +64,30 @@
             </form>
         </field>
     </record>
-        <record id="teachers_action" model="ir.actions.act_window">
+
+    <record id="student_form_view" model="ir.ui.view">
+        <field name="name">student.form.view</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <form string="Student">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="phone"/>
+                            <field name="email"/>
+                        </group>
+                        <group>
+                            <field name="image_1920"/>
+                            <field name="is_student"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="teachers_action" model="ir.actions.act_window">
         <field name="name">Teachers</field>
         <field name="res_model">res.partner</field>
         <field name="view_mode">tree,form</field>
@@ -55,5 +95,15 @@
         <field name="view_ids" eval="[(5,0,0),
                                         (0, 0, {'view_mode': 'tree', 'view_id': ref('teacher_tree_view')}),
                                         (0, 0, {'view_mode': 'form', 'view_id': ref('teacher_form_view')})]"/>
+    </record>
+
+    <record id="students_action" model="ir.actions.act_window">
+        <field name="name">Students</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('is_student', '=', True)]</field>
+        <field name="view_ids" eval="[(5,0,0),
+                                        (0, 0, {'view_mode': 'tree', 'view_id': ref('student_tree_view')}),
+                                        (0, 0, {'view_mode': 'form', 'view_id': ref('student_form_view')})]"/>
     </record>
 </odoo>
