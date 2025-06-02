@@ -8,3 +8,4 @@ class GradesEvaluation(models.Model):
     date = fields.Date(string='Date', required=True)
     observations = fields.Text(string='Observations')
     course_id = fields.Many2one('grades.course', string='Course', ondelete='cascade')
+    grade_ids = fields.One2many('grades.grade', 'evaluation_id', string='Grades')

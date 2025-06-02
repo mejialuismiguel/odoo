@@ -1,11 +1,6 @@
 <odoo>
-    <record id="grades_evaluation_action" model="ir.actions.act_window">
-        <field name="name">Evaluation</field>
-        <field name="res_model">grades.evaluation</field>
-        <field name="view_mode">tree,form</field>
-    </record>
-    <record id="grades_course_tree_view" model="ir.ui.view">
-        <field name="name">grades.evaluation.tree</field>
+    <record id="grades_evaluation_tree_view" model="ir.ui.view">
+        <field name="name">grades.evaluation.tree.view</field>
         <field name="model">grades.evaluation</field>
         <field name="arch" type="xml">
             <tree string="Evaluations">
@@ -15,5 +10,10 @@
                 <field name="course_id"/>
             </tree>
         </field>
+    </record>
+    <record id="grades_evaluation_action" model="ir.actions.act_window">
+        <field name="name">Evaluation</field>
+        <field name="res_model">grades.evaluation</field>
+        <field name="view_mode">tree,form</field>
     </record>
 </odoo>

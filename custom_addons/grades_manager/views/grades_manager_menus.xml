@@ -5,4 +5,5 @@
     <menuitem id="students_menus" sequence="3"  parent="grades_manager.grades_manager_menu" name="Students" action="students_action"/>
     <menuitem id="grades_course_menu" sequence="1" parent="grades_manager.grades_course_group_menus" name="Course" action="grades_course_action"/>
     <menuitem id="grades_evaluation_menus" sequence="2" parent="grades_manager.grades_course_group_menus" name="Evaluation" action="grades_evaluation_action"/>
+    <menuitem id="grades_grade_menus" sequence="3" parent="grades_manager.grades_course_group_menus" name="Grades" action="grades_grade_action"/>
 </odoo>

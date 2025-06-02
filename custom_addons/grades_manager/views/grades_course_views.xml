@@ -1,7 +1,6 @@
 <odoo>
-
-    <record id="grades_course_tree" model="ir.ui.view">
-        <field name="name">grades.course.tree</field>
+    <record id="grades_course_tree_view" model="ir.ui.view">
+        <field name="name">grades.course.tree.view</field>
         <field name="model">grades.course</field>
         <field name="arch" type="xml">
             <tree string="Courses">
@@ -20,8 +19,8 @@
         </field>
     </record>
 
-    <record id="grades_course_form" model="ir.ui.view">
-        <field name="name">grades.course.form</field>
+    <record id="grades_course_form_view" model="ir.ui.view">
+        <field name="name">grades.course.form.view</field>
         <field name="model">grades.course</field>
         <field name="arch" type="xml">
             <form string="Course">

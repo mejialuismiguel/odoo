@@ -28,4 +28,4 @@ class GradesCourse(models.Model):
     teacher_email = fields.Char(related='teacher_id.email', string='Teacher email', store=True)
     evaluation_ids = fields.One2many('grades.evaluation', 'course_id', string='Evaluations')
     student_ids = fields.Many2many('res.partner','grades_course_students_rel', string='Students')
-    state = fields.Selection([('register', 'Register'),('in_progress', 'In Progress'), ('finished', 'Finished')], String = 'State', default='register')
+    state = fields.Selection([('register', 'Register'),('in_progress', 'In Progress'), ('finished', 'Finished')], string = 'State', default='register')
