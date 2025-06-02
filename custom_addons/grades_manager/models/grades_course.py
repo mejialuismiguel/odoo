@@ -1,3 +1,5 @@
+from reportlab.graphics.shapes import String
+
 from odoo import models, fields
 
 
@@ -20,3 +22,4 @@ class GradesCourse(models.Model):
     teacher_id = fields.Many2one('res.partner', string='Teacher', domain=[('is_teacher', '=', True)])
     evaluation_ids = fields.One2many('grades.evaluation', 'course_id', string='Evaluations')
     student_ids = fields.Many2many('res.partner','grades_course_students_rel', string='Students')
+    state = fields.Selection([('register', 'Register'),('in_progress', 'In Progress'), ('finished', 'Finished')], String = 'State', default='register')
