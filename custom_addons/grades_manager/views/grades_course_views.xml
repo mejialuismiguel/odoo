@@ -36,11 +36,9 @@
                         <group>
                             <field name="name" required="1"/>
                             <field name="description"/>
-                            <field name="teacher_id" domain="[('is_teacher','=',True)]" required="1" readonly="state != 'register'"/>
+                            <field name="teacher_id" domain="[('is_teacher','=',True)]" required="1" readonly="state != 'register'" context="{'tree_view_ref':'grades_manager.teacher_tree_view', 'form_view_ref':'grades_manager.teacher_form_view'}"/>
                             <field name="course_start" required="1"/>
                             <field name="course_end" required="1"/>
-                            <field name="evaluation_ids" readonly="state != 'register'"/>
-                            <field name="student_ids" domain="[('is_student','=',True)]" widget="many2many_tags" required="1" readonly="state != 'register'"/>
                             <field name="create_uid" invisible="1"/>
                         </group>
                         <group>
@@ -51,6 +49,15 @@
                             <field name="course_shift"/>
                         </group>
                     </group>
+                    <notebook>
+                        <page string="Students" name="students">
+                            <field name="student_ids" domain="[('is_student','=',True)]" required="1" readonly="state != 'register'"
+                                                    context="{'tree_view_ref':'grades_manager.student_tree_view', 'form_view_ref':'student_form_view'}"/>
+                        </page>
+                        <page string="Evaluations" name="evaluations">
+                            <field name="evaluation_ids" readonly="state != 'register'"/>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
