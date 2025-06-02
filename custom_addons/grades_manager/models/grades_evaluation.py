@@ -7,4 +7,4 @@ class GradesEvaluation(models.Model):
     name = fields.Char(string='Name', required=True)
     date = fields.Date(string='Date', required=True)
     observations = fields.Text(string='Observations')
-    course_id = fields.Many2one('grades.course', string='Course')
+    course_id = fields.Many2one('grades.course', string='Course', ondelete='cascade')

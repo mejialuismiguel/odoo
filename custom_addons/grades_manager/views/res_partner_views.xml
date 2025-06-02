@@ -23,6 +23,7 @@
                 <field name="complete_name"/>
                 <field name="phone"/>
                 <field name="email"/>
+                <field name="vat"/>
                 <field name="is_teacher"/>
                 <field name="is_freelance"/>
             </tree>
@@ -37,6 +38,7 @@
                 <field name="complete_name"/>
                 <field name="phone"/>
                 <field name="email"/>
+                <field name="vat"/>
                 <field name="is_student"/>
             </tree>
         </field>
@@ -53,10 +55,11 @@
                             <field name="name" required="1"/>
                             <field name="phone"/>
                             <field name="email" required="1"/>
+                            <field name="vat"/>
                         </group>
                         <group>
                             <field name="image_1920"/>
-                            <field name="is_teacher"/>
+                            <field name="is_teacher" readonly="1"/>
                             <field name="is_freelance"/>
                         </group>
                     </group>
@@ -76,10 +79,11 @@
                             <field name="name" required="1"/>
                             <field name="phone"/>
                             <field name="email" required="1"/>
+                            <field name="vat"/>
                         </group>
                         <group>
                             <field name="image_1920"/>
-                            <field name="is_student"/>
+                            <field name="is_student" readonly="1"/>
                         </group>
                     </group>
                 </sheet>

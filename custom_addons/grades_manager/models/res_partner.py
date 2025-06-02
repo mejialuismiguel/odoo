@@ -6,4 +6,4 @@ class ResPartner(models.Model):
     is_teacher = fields.Boolean(string='Is teacher')
     is_freelance = fields.Boolean(string='Is freelance')
     is_student = fields.Boolean(string='Is student')
-
+    vat = fields.Char(required=True)

@@ -1,7 +1,3 @@
-from email.policy import default
-
-from reportlab.graphics.shapes import String
-
 from odoo import models, fields
 
 
@@ -14,8 +10,12 @@ class GradesCourse(models.Model):
     def _get_default_teacher(self):
         return self.env['res.partner'].search([('is_teacher', '=', True)], limit=1).id
 
+    def _get_student_qty(self):
+        return len(self.student_ids)
+
+
     name = fields.Char(string='Name')
-    student_qty = fields.Integer(string='Student quantity')
+    student_qty = fields.Integer(string='Student quantity', readonly=True)
     grades_averages = fields.Float(string='Grades averages')
     description = fields.Text(string='Description')
     is_active = fields.Boolean(string='Active', default=True)
@@ -24,7 +24,7 @@ class GradesCourse(models.Model):
     last_evaluation = fields.Datetime(string='Last evaluation')
     course_image = fields.Binary(string='Course icon')
     course_shift = fields.Selection([('day', 'Day'),('night', 'Night')], string='Course shift')
-    teacher_id = fields.Many2one('res.partner', string='Teacher', domain=[('is_teacher', '=', True)], default=_get_default_teacher)
+    teacher_id = fields.Many2one('res.partner', string='Teacher', domain=[('is_teacher', '=', True)], default=_get_default_teacher, ondelete='restrict')
     evaluation_ids = fields.One2many('grades.evaluation', 'course_id', string='Evaluations')
     student_ids = fields.Many2many('res.partner','grades_course_students_rel', string='Students')
     state = fields.Selection([('register', 'Register'),('in_progress', 'In Progress'), ('finished', 'Finished')], String = 'State', default='register')
