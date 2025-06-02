@@ -4,7 +4,7 @@
         <field name="model">grades.grade</field>
         <field name="arch" type="xml">
             <tree string="Grades" editable="bottom">
-                <field name="student_id"/>
+                <field name="student_id"  domain="[('is_student','=',True)]" />
                 <field name="value"/>
                 <field name="date"/>
                 <field name="evaluation_id"/>

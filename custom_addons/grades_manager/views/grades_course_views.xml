@@ -51,7 +51,7 @@
                     </group>
                     <notebook>
                         <page string="Students" name="students">
-                            <field name="student_ids" domain="[('is_student','=',True)]" required="1" readonly="state != 'register'"
+                            <field name="student_ids"  domain="[('is_student','=',True)]" required="1" readonly="state != 'register'"
                                                     context="{'tree_view_ref':'grades_manager.student_tree_view', 'form_view_ref':'student_form_view'}"/>
                         </page>
                         <page string="Evaluations" name="evaluations">
