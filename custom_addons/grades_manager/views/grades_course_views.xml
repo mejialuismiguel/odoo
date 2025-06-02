@@ -37,6 +37,7 @@
                             <field name="name" required="1"/>
                             <field name="description"/>
                             <field name="teacher_id" domain="[('is_teacher','=',True)]" required="1" readonly="state != 'register'" context="{'tree_view_ref':'grades_manager.teacher_tree_view', 'form_view_ref':'grades_manager.teacher_form_view'}"/>
+                            <field name="teacher_email" readonly="0"/>
                             <field name="course_start" required="1"/>
                             <field name="course_end" required="1"/>
                             <field name="create_uid" invisible="1"/>
